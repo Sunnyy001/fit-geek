@@ -1,0 +1,66 @@
+/* landing_page/Land_page.css */
+
+.upper_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .brand_name h1 {
+    margin: 0;
+  }
+  
+  .user_verification {
+    display: flex;
+    align-items: center; /* Center items vertically within the user_verification container */
+  }
+  
+  .log_in,
+  .sign_up {
+    margin-left: 10px;
+  }
+
+  .log_in,
+  .sign_up {
+    margin-left: 10px;
+  }
+ 
+ .btn_log_in, .btn_sign_up{
+    align-items: center;
+    background-color: #fff;
+    border-radius: 24px;
+    border: none;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    color: #3c4043;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: 0.25px;
+    line-height: normal;
+    max-width: 100%;
+    overflow: visible;
+    padding: 2px 24px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    width: auto;
+    will-change: transform, opacity;
+    z-index: 0;
+ }
+  
+ .btn_log_in:hover, .btn_sign_up:hover{
+    box-shadow: 0 15px 12px rgba(0, 0, 0, 0.2);
+ }
+
+ .btn_log_in:focus, .btn_sign_up:focus {
+    border: 2px solid grey;
+  }
+
+ 
