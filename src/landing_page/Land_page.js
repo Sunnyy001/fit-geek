@@ -1,9 +1,10 @@
 // landing_page/Land_page.js
 import React from 'react';
 import './Land_page.css'
+
 import myImage from '/home/akshay/fit-geek/src/images/smartphone.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import {faArrowRight, faCarrot } from '@fortawesome/free-solid-svg-icons'
 
 
 function Header() {
@@ -36,8 +37,6 @@ function Header() {
                   </div>
               </div>
           </div>
-
-          
 
           <section className='container_1'>
               <div className='typography'>
@@ -72,8 +71,21 @@ function Header() {
 }
 
 function Body() {
+
+  const styles = {
+    marginBottom: '2rem'
+  }
+  
   return (
     <>
+      <div className='what_to_eat'>
+          <div className='carrot' style={styles}>
+              <FontAwesomeIcon icon={faCarrot} beat size="2xl" color='white'/>   
+          </div>      
+          <h1>Confused! What to Eat? When To Eat?</h1>
+          <h3>Join with us and get personalised Diet Plans</h3>
+          <a href='www.google.com'>Search Diet Plans </a>
+      </div>
     </>
   )
 }
