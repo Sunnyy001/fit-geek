@@ -1,15 +1,27 @@
-// AnotherComponent.js
-
+// Gather.js
 import React from 'react';
-import { Header, Body } from './landing_page/Land_page';
+import { Routes, Route } from 'react-router-dom';
+import Login from './Pages/Login';
+import LandPage from './landing_page/Land_page'; // Adjust import
 
-const Gather = () => {
+const LandPageWrapper = () => {
   return (
-    <div>
-      <Header />
-      <Body />
-    </div>
+    <>
+      <LandPage.Header/>
+      <LandPage.Body />
+      <LandPage.Community />
+      <LandPage.Footer />
+    </>
   );
 }
 
-export default Gather;
+const GatherRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/Login" element={<Login />} />
+      <Route path="/" element={<LandPageWrapper/>} />
+    </Routes>
+  );
+}
+
+export default GatherRoutes;
