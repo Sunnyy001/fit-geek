@@ -1,7 +1,6 @@
 import React from 'react';
 import './login.css';
 import { useState } from 'react';
-
 // import LandPage from '../landing_page/Land_page';
 
 const Login = () => {
@@ -29,20 +28,20 @@ const Login = () => {
               </div>  
           
           <div className='container'>
-            <div className='login-header'></div>
+            <div className='login-header'>Login</div>
               <div className='input-area'>
-                  <input type='text' value={userNameValue} onChange={handleUserName} placeholder='Enter your Username'/>
+                  <input className='input' type='text' value={userNameValue} onChange={handleUserName} placeholder='Enter your Username'/>
                   {/* <h3>your username is {userNameValue}</h3> */}
                   <input type="password" value={password} onChange={handlePasswordChange} 
-                  placeholder="Enter your password"/>
+                  placeholder="Enter your password" className='pass'/>
                       {/* <h3>your username is {password}</h3> */}
 
               </div>
               <div className='btn'>
-                <button>Log In</button>
+                <button className='login-btn'>Log In</button>
                 <h3>or</h3>
-                <button>Continue with Google</button>
-                <button>Continue with Facebook</button>
+                <button className='g-btn'>Continue with Google</button>
+                <button className='fb-btn'>Continue with Facebook</button>
               </div>
         </div>
       </section>
