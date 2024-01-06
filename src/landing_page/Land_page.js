@@ -6,10 +6,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import product from '/home/akshay/fit-geek/src/images/product.png';
-import myImage_2 from '/home/akshay/fit-geek/src/images/left_cover.png';
-import myImage from '/home/akshay/fit-geek/src/images/smartphone.jpg';
-import community from '/home/akshay/fit-geek/src/images/community.png';
+import product from '../images/product.png';
+import myImage_2 from '../images/left_cover.png';
+import myImage from '../images/smartphone.jpg';
+import community from '../images/community.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faCarrot } from '@fortawesome/free-solid-svg-icons'

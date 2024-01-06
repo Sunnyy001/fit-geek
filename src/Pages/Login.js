@@ -1,10 +1,14 @@
 import React from 'react';
 import './login.css';
 import { useState } from 'react';
+import { useSearchParams, Link, Form, json} from 'react-router-dom';
 // import LandPage from '../landing_page/Land_page';
 
 const Login = () => {
 
+  const [searchParams] = useSearchParams();
+
+  const [isLogin, setIsLogin] = useState(true);
   
   const [userNameValue, setuserNameValue] = useState('')
   const[password, setPassword] = useState('');
@@ -27,15 +31,14 @@ const Login = () => {
                       </div>
               </div>  
           
+          <Form method='POST'>
           <div className='container'>
-            <div className='login-header'>Login</div>
+            <div className='login-header'>{isLogin ? 'Login' : 'Create an Account'}</div>
               <div className='input-area'>
                   <input className='input' type='text' value={userNameValue} onChange={handleUserName} placeholder='Enter your Username'/>
                   {/* <h3>your username is {userNameValue}</h3> */}
                   <input type="password" value={password} onChange={handlePasswordChange} 
                   placeholder="Enter your password" className='pass'/>
-                      {/* <h3>your username is {password}</h3> */}
-
               </div>
               <div className='btn'>
                 <button className='login-btn'>Log In</button>
@@ -43,7 +46,14 @@ const Login = () => {
                 <button className='g-btn'>Continue with Google</button>
                 <button className='fb-btn'>Continue with Facebook</button>
               </div>
-        </div>
+              <div className='mt-4'>
+                <a role='button' className='btn-link' href='#'>
+                  Need an Account
+                </a>
+              </div>
+          </div>
+          </Form>
+        
       </section>
     </>
   )

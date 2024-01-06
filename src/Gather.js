@@ -1,8 +1,10 @@
 // Gather.js
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import Login from './Pages/Login';
+import SignUp from './Pages/SignUp'
+import { createBrowserRouter, RouterProvider,  } from 'react-router-dom';
 import LandPage from './landing_page/Land_page'; // Adjust import
+import Error from './Pages/Error';
 
 const LandPageWrapper = () => {
   return (
@@ -10,18 +12,32 @@ const LandPageWrapper = () => {
       <LandPage.Header/>
       <LandPage.Body />
       <LandPage.Community />
-      <LandPage.Footer />
+      <LandPage.Footer /> 
     </>
-  );
+  ); 
 }
+
+const dbConnect = require("../db/dbConnect");
+
+dbConnect();
+
+const appRouter = createBrowserRouter([
+  {path: "/signup", element: <SignUp/>},
+  {path:"/Login",  element: <Login/>},
+  {path: "/", errorElement: <Error/> ,element: <LandPageWrapper/>}
+]);
 
 const GatherRoutes = () => {
   return (
-    <Routes>
-      <Route path="/Login" element={<Login />} />
-      <Route path="/" element={<LandPageWrapper/>} />
-    </Routes>
+    <RouterProvider router={appRouter}/>
   );
 }
 
 export default GatherRoutes;
+
+module.exports = {
+  // ... other configurations
+  resolve: {
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  },
+};
