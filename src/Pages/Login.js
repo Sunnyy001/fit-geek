@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useSearchParams, Link, Form, json} from 'react-router-dom';
 // import LandPage from '../landing_page/Land_page';
 
-const Login = () => {
 
-  const [searchParams] = useSearchParams();
+
+const Login = () => {
 
   const [isLogin, setIsLogin] = useState(true);
   

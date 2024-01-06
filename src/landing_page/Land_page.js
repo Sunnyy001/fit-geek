@@ -1,7 +1,6 @@
 // landing_page/Land_page.js
 import React from 'react';
-import './Land_page.css'
-
+import './Land_page.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

@@ -2,7 +2,6 @@ import React from 'react';
 import './login.css';
 import { useState } from 'react';
 import { useSearchParams, Link, Form} from 'react-router-dom';
-// import LandPage from '../landing_page/Land_page';
 
 const Signup = () => {
 
