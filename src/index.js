@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; 
-import GatherRoutes from './Gather';
+import LandPageWrapper from './GatherComponents';
+import { AuthTokenProvider } from './store/authContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <AuthTokenProvider>
     <React.StrictMode>
-      <GatherRoutes/>
+      <LandPageWrapper/>
     </React.StrictMode>
+  </AuthTokenProvider>
 );
