@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useAuthTokenProvider } from "../store/authContext";
+import { useAuth } from "../store/authContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [user, setUser] = useState({
         email: "",
         password: ""  
     });
-
+    const navigate = useNavigate();
     
 
     const updateUser = (e) => {
@@ -18,7 +19,8 @@ const Login = () => {
             [name]: value  //it will take the name which we declare in the input field automatically
         })
     }
-    const {setLocalStoragetoToken} = useAuthTokenProvider(); // useContext hook overhere 
+    const {setLocalStoragetoToken} = useAuth(); // useContext hook overhere 
+    // const {Login} = useAuth();
     
    const handleSubmit = async(e) =>{
     
@@ -38,8 +40,7 @@ const Login = () => {
                 const getToken = res_token.token;
                 setLocalStoragetoToken(getToken)
                 // localStorage.setItem("Token",getToken);
-                // alert("Success");
-
+                navigate("/user");
             }
         }catch (error) {console.log("Login", error);} 
    }

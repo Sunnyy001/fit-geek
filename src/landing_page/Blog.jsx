@@ -7,7 +7,7 @@ function Blog() {
                 <div className='container_blog'>
                     <div className='blog_card'>
                         <div className='blog_img'>
-                            <img />
+                            <img/>
                         </div>
                         <div className='blog_content'>
                             <h2></h2>

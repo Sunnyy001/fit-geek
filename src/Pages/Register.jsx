@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuthTokenProvider } from "../store/authContext";
+import { useAuth } from "../store/authContext";
 
 
 const Register = () =>{
@@ -20,7 +20,7 @@ const Register = () =>{
         });
     }    
 
-    const {setLocalStoragetoToken} = useAuthTokenProvider();
+    const {setLocalStoragetoToken} = useAuth();
 
 
     const handleSubmit = async(e) =>{
@@ -34,6 +34,9 @@ const Register = () =>{
             body:JSON.stringify(user) //converting user to JSON format
         });
 
+        const res_token = await response.json();
+        
+
             if(response.ok){
                 setUser(
                     {
@@ -41,21 +44,18 @@ const Register = () =>{
                         email: "",
                         phone: "",
                         password: ""
-                })
-
-                const res_token = await response.json();
+                })             
                 const getToken = res_token.token;
-                console.log(getToken);
+                // console.log(getToken);
                 setLocalStoragetoToken(getToken);
-                
-                
+            }else{
+                console.log(res_token.extraDetailedMessage);
+                alert(res_token.message);
             }
-            console.log(response);
+            // console.log(response);
         } catch (error) {
             console.log("register", error);
         }
-
-        
     }
 
     return(

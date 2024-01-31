@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(96,150,180);
+    background: linear-gradient(90deg, rgba(96,150,180,1) 6%, rgba(147,191,207,1) 23%, rgba(238,233,218,1) 64%);
+    margin: 5%;
+    border-radius: 5rem;
+}
+
+.text-area{
+    background-color: #6097b431;
+    border-radius: 7rem 20rem 20rem 7rem;
+    padding: 10%;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.egg-mini-card, .beans-mini-card, .peanut-mini-card{
+    border-radius: 75% 75% 75% 75% / 60% 60% 60% 60%;
+    /* overflow: hidden; */
+    background-color: pink;
+    border: 1px solid #ddd; /* Add styling for the mini-cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+    margin-left: 1rem;
+    padding: 3.5rem;
+}
+
+.text-adjuster{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 2%;
+    }
+}

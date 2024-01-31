@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './Pages/Register';
 import Login from  './Pages/Login';
 import { Logout } from './Pages/Logout';
+import { UserDashboard } from './user-pages/UserDashboard';
 
 const LandPageWrapper = () => {
   return (
@@ -14,6 +15,7 @@ const LandPageWrapper = () => {
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register/>} />
             <Route path='/logout' element={<Logout/>}/>
+            <Route path='/user' element = {<UserDashboard/>} />
           </Routes>
       </BrowserRouter>
         
