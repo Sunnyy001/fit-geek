@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import "../user-pages/nutritionTrackerStyling.css";
-import { map } from 'zod';
 
 const NutritionTracker = () => {
     console.log("Component rendered");
     const [apiData, setApiData] = useState(null);
     const [search, setSearch] = useState("");
-    const [getFoodInfo, setgetFoodInfo] = useState("");
+    // const [getFoodInfo, setgetFoodInfo] = useState("");
 
     const searchedQuery = (e) => {
         let newValue = e.target.value;
@@ -16,25 +15,30 @@ const NutritionTracker = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('clicked');
-        const apiKey = 'l282OtJUfRyHbkAyMwJG16W80hSPhfw6cUodPCuc';
 
         try {
-          const response = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=${search}`);
-          if (response.ok) {
-              const data = await response.json();
-              console.log(data);
-              setApiData(data);
-              // console.log(data.foods);
-              let trackedFood = data.foods;
-              setgetFoodInfo(trackedFood)
-              console.log(getFoodInfo);
-          } else {
-              console.log("Error from fetching API data");
-              setgetFoodInfo([]);
-          }
-      } catch (error) {
-          console.log(`Error in API: ${error.message}`);
-      }
+        const response = await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-app-id': '240b598c',
+                'x-app-key': '246464e848f6edcfd6c3ea1578876791'
+            },
+            body: JSON.stringify({
+                "query": "muesli" // Use search directly
+            })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            setApiData(data);
+            console.log(data); // Log the resolved data, not the state variable
+        } else {
+            console.log("Error from fetching API data");
+        }
+    } catch (error) {
+        console.log(`Error in API: ${error.message}`);
+    }
   };
 
     return (
@@ -46,11 +50,7 @@ const NutritionTracker = () => {
             </form>
 
             <section>
-            {getFoodInfo.map((item) => (
-                <li key={item.fdcId}>
-                  {item.description}: {item.dataType}
-                </li>
-              ))}
+
             </section>
         </>
     );
